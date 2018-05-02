@@ -4,20 +4,18 @@ var testArrayGenap = [40, 18, 22, 32, 90, 10, 10, 22, 8]
 var testArrayGanjil = [3, 31, 89, 53, 53, 85, 77, 21, 55]
 
 function ownSort(arr) {
-  for(var i = 0; i < arr.length; i++){
-   var temp = 0;
-   for(var k = i+1; k > 0; k--){
-     if(arr[k - 1] > arr[k]){
-       temp = arr[k-1];
-       arr[k-1] = arr[k];
-       arr[k]= temp;
-     }
-   }
-   console.log(arr);
- }
-
- return arr;
-
+  var temp = 0;
+  for(var i = 1; i < arr.length; i++){
+   for(var k = 0; k < i+1; k++){
+     if(arr[i] < arr[k]){
+       temp = arr[k];
+       arr[k] = arr[i];
+       arr[i]= temp;
+      }
+    }
+    console.log(arr);
+  }
+  return arr;
 
 }
 
