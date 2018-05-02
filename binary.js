@@ -4,21 +4,18 @@ var testArrayGenap = [40, 18, 22, 32, 90, 10, 10, 22, 8];
 var testArrayGanjil = [3, 31, 89, 53, 53, 85, 77, 21, 55];
 
 function ownSort(arr) {
-  for (var i = 0; i < arr.length - 1; i++) {
-    var min = i; // first init
+  // insertion sort
 
-    for (var j = i + 1; j < arr.length; j++) {
-      if (arr[j] < arr[min]) {
-        min = j; //exchange
-      }
+  for (var i = 1; i < arr.length; i++) {
+    var isi = arr[i];
+
+    for (var j = i - 1; arr[j] > isi; j--) {
+      arr[j + 1] = arr[j];
     }
-    if (min != i) {
-      var change = arr[i];
-      arr[i] = arr[min];
-      arr[min] = change;
-    }
+    arr[j + 1] = isi;
   }
   return arr;
+
 }
 
 function binary_search(search, array) {
