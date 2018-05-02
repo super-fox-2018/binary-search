@@ -4,24 +4,20 @@ var testArrayGenap = [40, 18, 22, 32, 90, 10, 10, 22, 8]
 var testArrayGanjil = [3, 31, 89, 53, 53, 85, 77, 21, 55]
 
 function ownSort(arr) {
-  /* Don't push to new array. just swap the location of the arr itself*/
-  var newArr = [];
+  for(var i = 0; i < arr.length; i++){
+   var temp = 0;
+   for(var k = i+1; k > 0; k--){
+     if(arr[k - 1] > arr[k]){
+       temp = arr[k-1];
+       arr[k-1] = arr[k];
+       arr[k]= temp;
+     }
+   }
+   console.log(arr);
+ }
 
-  while(arr.length !== 0){
-    var temp = arr[0];
-    var position = 0;
-    for(var i = 0; i < arr.length; i++){
-      if(arr[i] < temp){
-        temp = arr[i];
-        position = i;
-      }
-    }
-    newArr.push(temp);
-    arr.splice(position,1);
-  }
+ return arr;
 
-  arr = newArr;
-  return arr;
 
 }
 
