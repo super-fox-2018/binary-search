@@ -5,14 +5,18 @@ var testArrayGanjil = [3, 31, 89, 53, 53, 85, 77, 21, 55];
 
 function ownSort(arr) {
   let current = 0;
+  let sorted = false;
   for (var i = 1; i < arr.length; i++) {
     current = arr[i];
+    sorted = false;
     for (var j = i; j >= 0; j--) {
       if (arr[j - 1] > current) {
         arr[j] = arr[j - 1];
       } else {
-        arr[j] = current;
-        break;
+        if (sorted === false) {
+          arr[j] = current;
+          sorted = true;
+        }
       }
     }
   }
