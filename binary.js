@@ -17,17 +17,23 @@ function ownSort(arr) {
   return arr 
 }
 
-// yang dibawah ini function buat check apakah number yang di search ada or g, kalau ada return 1 klu g ada return 0
-// tapai kalau mau dikasih liat di indext berapa tinggal ganti return i dan kalau g ada di index berapa return -1
-
 function binarySearch (search, array) {
-  // console.log(ownSort(array))
-  for (var i=0; i<ownSort(array).length; i++){
-    if (ownSort(array)[i]===search){
-      return 1
+  var firstIndex = 0
+  var lastIndex = array.length-1
+
+  while(firstIndex <= lastIndex){
+    var midIndex = parseInt(lastIndex+firstIndex/2)
+    if(array[midIndex] > search){
+      lastIndex = midIndex - 1
+    }
+    else if(array[midIndex] < search){
+      firstIndex = midIndex + 1
+    }
+    else if(array[midIndex] === search){
+      return midIndex
     }
   }
-  return 0;
+  return -1;
 }
 
 var arrayGenapSorted = ownSort(testArrayGenap)
